@@ -1,5 +1,6 @@
 '''
 Propaga el fuego: en una lista de números -1, 0 y 1; si hay un 0 junto a un 1, lo transforma en 1, lo quema.
+@author: Mariana Blanco
 '''
 
 def invertir_lista(lista):
