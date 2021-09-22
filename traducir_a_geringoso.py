@@ -1,5 +1,6 @@
 '''
 Recibe una lista de palabras y genera un diccionario de las mismas palabras traducidas al geringoso.
+@author: Mariana Blanco
 '''
 lista = ['banana', 'manzana', 'mandarina']
 
