@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Oct  6 09:20:52 2021
-
-@author: Mary
+Este módulo permite procesar, renombrar y trasladar archivos de extensión 'png' de uno o varios directorios a otro.
+Los archivos usados tenían la fecha de acceso en el mismo nombre. 
 """
 import os
 import sys
@@ -11,6 +10,9 @@ import shutil
 from datetime import datetime
 
 def obtener_fecha(nombre_archivo: str):
+    '''
+    Recibe el nombre del archivo. Obtiene y devuelve esa fecha.
+    '''
     a = list(nombre_archivo)
     fecha = [int(c)for c in a if c.isdigit()]
     fecha = [str(n) for n in fecha]
@@ -34,15 +36,14 @@ def procesar(directorio_origen, directorio_destino):
     '''
     Recibe un directorio de origen, selecciona y procesa los archivos png
     y los envía al directorio de destino
-    '''
-    
+    '''    
     archivos_png = [] 
     
-    # Creo el directorio de destino si no existe
+    # Crea el directorio de destino si no existe
     existe = os.path.isdir(directorio_destino)
     if existe == False:
         os.mkdir(directorio_destino)    
-        print('Cree la carpeta')
+        #print('Creé la carpeta')
     
     # Recorro los directorios y archivos
     for root, dirs, files in os.walk(directorio_origen, topdown = False):         
@@ -67,7 +68,8 @@ def procesar(directorio_origen, directorio_destino):
                 
                 # Mueve el archivo desde la ubicación actual al directorio_destino
                 shutil.move(nombre_editado, directorio_destino)
-          
+                
+    # Devuelve la lista con los archivos que fueron procesados y trasladados      
     return archivos_png
 
     
@@ -88,7 +90,6 @@ if __name__ == '__main__':
     directorio_origen = sys.argv[1]
     directorio_destino = sys.argv[2]
     print(directorio_origen, directorio_destino)
-    #directorio = ('../Data/ordenar')
     lista_archivos_png = procesar(directorio_origen, directorio_destino)
     print(lista_archivos_png)
     print('Terminado')
