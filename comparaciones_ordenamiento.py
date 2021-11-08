@@ -3,6 +3,8 @@
 Created on Mon Nov  1 19:41:29 2021
 
 @author: Mary
+
+Evalúa con comparaciones la eficiencia de diferentes algoritmos de ordenamiento en Python.
 """
 import random
 import numpy as np
@@ -137,7 +139,7 @@ def reubicar(lista, p, c):
     lista[j] = v
     return c
 
-#%% Merge
+#%% Ordenamiento Merge
 def merge_sort(lista, c = 0):
     """Ordena lista mediante el método merge sort.
        Pre: lista debe contener elementos comparables.
@@ -217,8 +219,8 @@ def experimento(N, k):
     #print(prom_burbujeo, prom_insercion, prom_seleccion, prom_merge)
     return prom_burbujeo, prom_insercion, prom_seleccion, prom_merge
     
-#%% SEGUIR CON Ejercicio 12.5: comparar métodos gráficamente
-
+    
+#%% Gráficos
 def experimento_vectores(Nmax):
     """
     Evalúa con la cantidad de comparaciones la eficiencia de cada algoritmo
